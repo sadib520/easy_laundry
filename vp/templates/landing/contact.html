@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CONTACT US</title>
+
+    <style>
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .div1 {
+            width: 50%;
+            text-align: center;
+        }
+
+        .div2 {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .textsize {
+            font-size: 20px;
+            color: skyblue;
+            color: darkgreen;
+        }
+
+        label {
+            text-align: left;
+            display: block;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        b {
+            color: skyblue;
+        }
+
+        input[type="submit"] {
+            background-color: skyblue;
+            background-color: darkgreen;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4da6ff;
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Us</h1>
+    <hr color="green" width="5%">
+    <br><br>
+
+    <div class="container">
+        <div class="div1">
+            <p><b class="textsize">Our address:</b></p>&nbsp;&nbsp;DIU, Ashulia<br><br>
+            <p><b class="textsize">Call us:</b></p>&nbsp;&nbsp;01554545444<br><br>
+            <p><b class="textsize">Have any questions?</b></p>&nbsp;&nbsp;
+            <a href="https://www.google.com/" target="blank">Web</a>
+        </div>
+
+        <div class="div2">
+            <form>
+                <div>
+                    <label for="fullname"><b class="textsize">Name:</b></label>
+                    <input type="text" name="fullname" id="fullname" required>
+                </div><br>
+                <div>
+                    <label for="number"><b class="textsize">Mobile Number:</b></label>
+                    <input type="text" name="number" id="number" required>
+                </div><br>
+                <div>
+                    <label for="email"><b class="textsize">Email:</b></label>
+                    <input type="email" name="email" id="email" required>
+                </div><br>
+                <div>
+                    <label for="massage"><b class="textsize">Massage:</b></label>
+                    <textarea cols="30" rows="10"></textarea>
+                </div><br>
+                <div>
+                    <input type="submit" value="Send Massage">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

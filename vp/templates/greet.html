@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #00adb5; /* Sets background color for the entire page */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: fira code;
+            
+        }
+
+        .box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box h1 {
+            color: whitesmoke; /* Text color that contrasts well with the background */
+        }
+
+        a {
+            color: #145da0;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>Thank you for registering!</h1>
+        <h1>
+            You can now <a href="{% url 'login_path' %}">login</a>.
+        </h1>
+    </div>
+    
+</body>
+</html>

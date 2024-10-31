@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #00adb5;
+            margin: 0;
+            font-family: "Fira Code", monospace;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 90%;
+            
+        }
+
+        /* Image styling */
+        .container img {
+            max-width: 180px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form styling */
+        form {
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2e8bc0;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            width: 20%;
+            margin: 10px auto;
+            border: 1px solid #2e8bc0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Input styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #2e8bc0;
+            outline: none;
+            background-color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #2e8bc0;
+            color: whitesmoke;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #216b96;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1em;
+            color: #145da0;
+        }
+
+        p a {
+            color: #145da0;
+            text-decoration: underline;
+            
+        }
+
+        p a:hover {
+            color: #0f4d73;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <a href="https://en.wikipedia.org/wiki/Ratan_Tata" target="_blank"><img src="/static/images/ratan.jpg" alt="Registration Image"></a>
+
+        
+        <form method="post" action="{% url 'adduser_path' %}">
+            <h1>Registration Form</h1>
+            <hr><br>
+
+            <div>
+                <label for="fullname">Username:</label>
+                {% csrf_token %}
+                <input type="text" name="username" id="username" required autofocus autocomplete="on">
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                {% csrf_token %}
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                {% csrf_token %}
+                <input type="password" name="password1" id="password" required>
+            </div>
+
+            <div>
+                <label for="password">Confirm Password:</label>
+                {% csrf_token %}
+                <input type="password" name="password2" id="password" required>
+            </div>
+
+            <div>
+                {% csrf_token %}
+                <input type="submit" name="Sign Up" value="Sign Up">
+            </div>
+            <hr>
+            <p>Already have an account? <a href="{% url 'login_path' %}">Log in</a></p>
+        </form>
+    </div>
+</body>
+
+</html>

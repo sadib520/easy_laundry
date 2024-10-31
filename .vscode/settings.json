@@ -1,0 +1,20 @@
+{
+    "editor.fontSize": 15,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "LMS_db",
+            "database": "lms",
+            "username": "root",
+            "askForPassword": true
+        }
+    ],
+    "editor.fontFamily": "\"Fira Code\""
+}

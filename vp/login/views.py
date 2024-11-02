@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User 
 from django.http import HttpResponse
 from django.http import JsonResponse
-from .models import user
+from django.views import View
+from .models import custom_user  #! imported the custom user creted in models.py
 import datetime
 
 
@@ -11,9 +12,9 @@ import datetime
 def log_in_page(request):
     year = datetime.datetime.now().year  
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         msg = '''
         <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Fira Code; text-align: center; background-color: whitesmoke;">
@@ -44,16 +45,21 @@ def reg(request):
 
 def add_user(request):
     if request.method == 'POST':
-        uname = request.POST.get('username')
+        name = request.POST.get('name')
         email = request.POST.get('email')
+        number = request.POST.get('number')
         pass1 = request.POST.get('password1')
         pass2 = request.POST.get('password2')
 
+        # if not email or name or number:
+        #     return JsonResponse({'error': 'All fields are required'})
+
         if pass1 != pass2:
-            return HttpResponse("password doesn't match")
+            return JsonResponse({'error': "password doesn't match"})
+        elif custom_user.objects.filter(email=email).exists():
+            return JsonResponse({'error': "Email already exists"})
         else:
-            user = User.objects.create_user(uname, email, pass1)
-            user.save()
+            user = custom_user.objects.create_user(name=name, email=email, number=number, password=pass1)
             return redirect('greet_path')
 
     return render(request, 'reg.html', {})

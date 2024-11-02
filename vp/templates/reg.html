@@ -128,17 +128,28 @@
         <form method="post" action="{% url 'adduser_path' %}">
             <h1>Registration Form</h1>
             <hr><br>
-
             <div>
+                <label for="fullname">Name:</label>
+                {% csrf_token %}
+                <input type="text" name="name" id="username" required autofocus autocomplete="on">
+            </div>
+
+            <!-- <div>
                 <label for="fullname">Username:</label>
                 {% csrf_token %}
                 <input type="text" name="username" id="username" required autofocus autocomplete="on">
-            </div>
+            </div> -->
 
             <div>
                 <label for="email">Email:</label>
                 {% csrf_token %}
                 <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+                <label for="fullname">Number:</label>
+                {% csrf_token %}
+                <input type="text" name="number" id="username" required autofocus autocomplete="on">
             </div>
 
             <div>

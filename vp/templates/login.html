@@ -98,9 +98,9 @@
 
     <form method="POST" action="{% url 'login_path' %}">
         <div>
-            <label for="username">Username:</label>
+            <label for="username">Email:</label>
             {% csrf_token %}
-            <input type="text" name="username" id="username" required autofocus autocomplete="on">
+            <input type="text" name="email" id="username" required autofocus autocomplete="on">
         </div>
 
         <div>

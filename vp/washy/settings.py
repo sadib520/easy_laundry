@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'washy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'easylaundry_db',
+        'NAME': 'easylms_db',
         'USER': 'root',
         'PASSWORD': 'sadib24',
         'HOST': 'localhost',
@@ -141,4 +141,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login_path'  # This matches your custom login URL's name
 
-
+AUTH_USER_MODEL = 'login.custom_user'

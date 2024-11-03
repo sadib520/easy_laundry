@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from .manager import custom_usermanager
 # Create your models here.
-class custom_user(AbstractBaseUser):  #! models.Model etar mane amra django default model use korchi. user mane ekhane custom user model create kora hoice.
+class custom_user(AbstractBaseUser, PermissionsMixin):  #! models.Model etar mane amra django default model use korchi. user mane ekhane custom user model create kora hoice.
     name = models.CharField(max_length=25)
     email = models.EmailField(("Email Address"), max_length=30, unique=True)
     number = models.IntegerField(("number"),)
@@ -27,7 +27,18 @@ class custom_user(AbstractBaseUser):  #! models.Model etar mane amra django defa
 #* USERNAME_FIELD — This is a string describing the unique identifier; in our case, its email.
 #* REQUIRED_FIELDS - a list of mandatory fields required when creating a new user. Add the properties to the User model.
 
+    def __str__(self):
+        return self.email
 
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_admin
 
 
 

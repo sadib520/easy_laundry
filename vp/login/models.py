@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from .manager import custom_usermanager
 # Create your models here.
-class custom_user(AbstractBaseUser, PermissionsMixin):  #! models.Model etar mane amra django default model use korchi. user mane ekhane custom user model create kora hoice.
+class custom_user(AbstractBaseUser, PermissionsMixin):  #!models.Model etar mane amra django default model use korchi. user mane ekhane custom user model create kora hoice.
     name = models.CharField(max_length=25)
     email = models.EmailField(("Email Address"), max_length=30, unique=True)
     number = models.IntegerField(("number"),)
@@ -14,7 +14,7 @@ class custom_user(AbstractBaseUser, PermissionsMixin):  #! models.Model etar man
     is_admin = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
 
-    objects = custom_usermanager() #! By defining objects = CustomUserManager(), you're overriding the default manager for your custom user model with your CustomUserManager instance.
+    objects = custom_usermanager() #!By defining objects = CustomUserManager(), you're overriding the default manager for your custom user model with your CustomUserManager instance.
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name', 'number']

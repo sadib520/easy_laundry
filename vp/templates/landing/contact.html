@@ -82,10 +82,11 @@
         </div>
 
         <div class="div2">
-            <form>
+            <form method="post" action="{%url 'contact_path'%}">
+                {% csrf_token %}
                 <div>
                     <label for="fullname"><b class="textsize">Name:</b></label>
-                    <input type="text" name="fullname" id="fullname" required>
+                    <input type="text" name="name" id="fullname" required>
                 </div><br>
                 <div>
                     <label for="number"><b class="textsize">Mobile Number:</b></label>
@@ -97,7 +98,7 @@
                 </div><br>
                 <div>
                     <label for="massage"><b class="textsize">Massage:</b></label>
-                    <textarea cols="30" rows="10"></textarea>
+                    <textarea cols="30" rows="10" name="message"></textarea>
                 </div><br>
                 <div>
                     <input type="submit" value="Send Massage">

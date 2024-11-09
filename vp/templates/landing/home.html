@@ -22,6 +22,11 @@
             /* background-color: rgb(142,21,51); */
             /* background-color: #0f445c; */
             background-color: whitesmoke;   
+            font-family: fira code;
+        }
+        li a{
+          font-family: fira code;
+
         }
 
 
@@ -43,7 +48,7 @@
   <div class="container" style="padding-top: 30px;">
     <header class="d-flex justify-content-start align-items-center" style="height: 100px;">
       <a href="{%url 'home_path'%}" style="color: inherit; text-decoration:none">
-        <img src="/static/images/logof.jpg" alt="Footer Logo" style="width: 260px; height: auto; border: 2px solid #1a7979; border-radius: 10px;">
+        <img src="/static/images/logof.jpg" alt="Footer Logo" style="width: 260px; height: auto; border: 2px solid rgb(10, 219, 114); border-radius: 10px;">
       </a>
       <span id="location" style="margin-left:auto;">
         🌏Dattapara, khagan, Birulia-1216, Ashulia
@@ -54,8 +59,8 @@
 
 
     <!-- navvar -->
-   <nav class="navbar navbar-expand-lg" style="background-color: #0fd1dc;">
-    <div class="container-fluid" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+   <nav class="navbar navbar-expand-lg" style="background-color:rgb(10, 219, 114);">
+    <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -88,10 +93,10 @@
             <a class="nav-link active" href="{% url 'login_path' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'login_path' %}" style="font-style: oblique; font-family:Verdana, Geneva, Tahoma, sans-serif">Schedule a Pickup</a>
+            <a class="nav-link active" href="{% url 'login_path' %}">Schedule a Pickup</a>
           </li> 
         </ul>
-        <form class="d-flex" role="search" method="POST" action="{% url 'postal_path' %}">
+        <form class="d-flex" role="search" method="POST" action="{% url 'postal_path' %}" style="padding-left: 20px;">
           {% csrf_token %}
           <input class="form-control me-2" type="search" placeholder="postal code" aria-label="Search" name="postal_code">         
           <button type="submit" class="btn btn-danger">Check</button>
@@ -102,16 +107,18 @@
 
 
 
-
+<!-- vision -->
   <div class="px-4 pt-5 my-5 text-center border-bottom">
     <h1 class="display-4 fw-bold text-body-emphasis" style="  color: white; 
-          text-shadow: 0px 0px 10px cyan,
-    0px 0px 20px cyan, 0px 0px 40px cyan, 0px 0px 80px cyan;">Our Vision !</h1>
+          text-shadow: 0px 0px 10px rgb(10, 219, 114),
+    0px 0px 20px rgb(10, 219, 114), 0px 0px 40px rgb(10, 219, 114), 0px 0px 80px rgb(10, 219, 114);">Our Vision !</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4" style="font-family: 'Poppins', sans-serif;">At easylaundry, our vision is to simplify the lives of dormitory students by providing a hassle-free, efficient, and reliable laundry service. We understand the challenges students face in managing their time between studies, social life, and personal responsibilities. Our goal is to ease the burden of laundry, allowing students to focus on what truly matters while we take care of their laundry needs. We are committed to delivering high-quality service that is convenient, affordable, and designed with students in mind.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="button" class="btn btn-danger btn-lg px-4 me-sm-3"><a href="{% url 'dev_path'%}" style="color: inherit; text-decoration:none">Developers</a></button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="{%url 'join_path'%}" style="color: inherit; text-decoration:none">Join us</button>
+        <!-- <button type="button" class="btn btn-success btn-lg px-4 me-sm-3"><a href="{% url 'dev_path'%}" style="color: inherit; text-decoration:none; border-radius: 0; color:#000000; font-family: fira code">Developers</a></button> -->
+        <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="#" style="color: inherit; text-decoration:none">Join us</button> -->
+          <button type="button" style="height: 50px; background-color:rgb(10, 219, 114); width: 200px;"><a href="{% url 'dev_path'%}" style="color: inherit; text-decoration:none; border-radius: 0; color:#000000;">Developers</a></button>
+          <button type="button"><a href="{% url 'join_path'%}" style="color: inherit; text-decoration:none;">join us</a></button>
       </div>
     </div>
     <div class="overflow-hidden" style="height: 300px;">
@@ -160,13 +167,14 @@
     </div>
   </div>
 
+
   <!-- carousel -->
   <div class="container">
   <div id="carouselExampleCaptions" class="carousel slide" style="border: 15px;">
     <div class="carousel-indicators" style="border: 15px">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button  data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button  data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button  data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner" style="padding-top: 25px; border: 15px;">
       <div class="carousel-item active">
@@ -202,6 +210,7 @@
   </div>
   </div>
 
+  
   <!-- pricing -->
   <div class="container py-3">
     <header>
@@ -223,7 +232,7 @@
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Basic</h4>
+              <h4 class="my-0 fw-normal" style="font-family: fira code">Basic</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">৳600<small class="text-body-secondary fw-light">/mo</small></h1>
@@ -234,14 +243,14 @@
                 <li>Saves 50%</li>
                 <li>Best deal for bachelor's</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="{% url 'reg_path'%}" style="color: inherit; text-decoration:none">Sign up for free</a></button>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="background-color: rgb(10, 219, 114); color: #000000; border: none; font-family: fira code;"><a href="{% url 'reg_path'%}" style="color: inherit; text-decoration:none">Sign up for free</a></button>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Family</h4>
+              <h4 class="my-0 fw-normal" style="font-family: fira code;">Family</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">৳1200<small class="text-body-secondary fw-light">/mo</small></h1>
@@ -251,13 +260,13 @@
                 <li>Maximum 18kg per day</li>
                 <li>Email support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary"><a href="{%url 'reg_path'%}" style="color: inherit; text-decoration:none">Get started</a></button>
+              <button type="button" class="w-100 btn btn-lg btn-primary" style="background-color: rgb(10, 219, 114); color: #000000; border: none; font-family: fira code;"><a href="{%url 'reg_path'%}" style="color: inherit; text-decoration:none">Get started</a></button>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm border-primary">
-            <div class="card-header py-3 text-bg-primary border-primary">
+          <div class="card mb-4 rounded-3 shadow-sm ">
+            <div class="card-header py-3" style="background-color: rgb(10, 219, 114); color: #000000; border: none; font-family: fira code;">
               <h4 class="my-0 fw-normal">Enterprise</h4>
             </div>
             <div class="card-body">
@@ -269,7 +278,7 @@
                 <li>100% cleaning gurantee</li>
                 <li>Fast delivery</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary"><a href="{%url 'contact_path'%}" style="color: inherit; text-decoration:none">Contact us</button>
+              <button type="button" class="w-100 btn btn-lg btn-primary" style="background-color: rgb(10, 219, 114); color: #000000; border: none; font-family: fira code;"><a href="{%url 'contact_path'%}" style="color: inherit; text-decoration:none">Contact us</button>
             </div>
           </div>
         </div>
@@ -293,15 +302,19 @@
       </div>
   
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-body-secondary" href="#">
+        <!-- <li class="ms-3"><a class="text-body-secondary" href="#">
             <img src="/static/images/twitter-x.svg">
         </a></li>
         <li class="ms-3">
             <a class="text-body-secondary" href="#">
                 <img src="/static/images/instagram.svg">
-            </a></li>
+            </a></li> -->
+            <li class="ms-3">
+              <a class="text-body-secondary" href="https://github.com/sadib520/easy_laundry" target="_blank">
+                  <img src="/static/images/github.svg">
+              </a></li>
         <li class="ms-3">
-            <a class="text-body-secondary" href="#">
+            <a class="text-body-secondary" href="https://www.facebook.com/sadib.hasan.50/" target="_blank">
                 <img src="/static/images/facebook.svg">
             </a></li>
       </ul>

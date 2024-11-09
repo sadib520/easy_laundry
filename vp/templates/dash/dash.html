@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Service Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: fira code;
+      background-color: whitesmoke;
+    }
+    .navbar {
+      background-color: #28a745; /* Green color */
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .card {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'dash_path'%}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'order_path'%}">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'profile_path'%}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="text-center">Welcome to Your Dashboard<br>{{name}}</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">New Orders</h5>
+            <p class="card-text">Manage all new laundry orders.</p>
+            <button class="btn btn-success" onclick="handleAction('newOrders')">View Orders</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">In Progress</h5>
+            <p class="card-text">Track laundry currently in progress.</p>
+            <button class="btn btn-success" onclick="handleAction('inProgress')">Track Progress</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Completed</h5>
+            <p class="card-text">View completed orders ready for pickup.</p>
+            <button class="btn btn-success" onclick="handleAction('completed')">View Completed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleAction(action) {
+      alert('Button clicked for: ' + action);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

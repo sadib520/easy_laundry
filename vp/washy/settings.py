@@ -144,5 +144,7 @@ STATICFILES_DIRS = [STATIC_DIR]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login_path'  # This matches your custom login URL's name
+LOGIN_REDIRECT_URL = 'dash_path'  # Redirects after login
+LOGOUT_REDIRECT_URL = 'login_path'
 
 AUTH_USER_MODEL = 'login.custom_user'

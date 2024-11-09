@@ -13,8 +13,7 @@ def cards(request):
 def join(request):
     return render(request, 'landing/joinus.html')
 
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+
 
 def contact(request):
     if request.method == 'POST':

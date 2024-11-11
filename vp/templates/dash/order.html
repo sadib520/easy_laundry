@@ -15,7 +15,8 @@
       background-color: #28a745; /* Green color */
     }
     .navbar-brand, .nav-link {
-      color: white !important;
+      color: white;
+      color: black;
     }
     .card {
       margin: 10px 0;
@@ -32,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="{%url 'dash_path'%}">Home</a>
+            <a class="nav-link" href="{%url 'dash_path'%}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{%url 'order_path'%}">Orders</a>

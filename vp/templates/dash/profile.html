@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,22 @@
       font-family: Fira Code, monospace;
       background-color: whitesmoke;
     }
+
     .navbar {
-      background-color: #28a745; /* Green color */
+      background-color: #28a745;
+      /* Green color */
     }
-    .navbar-brand, .nav-link {
-      color: white !important;
+
+    .navbar-brand,
+    .nav-link {
+      color: white;
+      color: black;
     }
+
     .card {
       margin: 10px 0;
     }
+
     .profile-section {
       margin: 20px;
       background-color: whitesmoke;
@@ -27,25 +35,37 @@
       border-radius: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .profile-info {
       margin-bottom: 20px;
     }
+
     .profile-info label {
       font-weight: bold;
     }
+
+    input[type="text"]{
+      border-color: rgb(10, 219, 114);
+      outline: none;
+
+    }
+
+
   </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'dash_path' %}">Home</a>
+            <a class="nav-link" href="{% url 'dash_path' %}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'order_path' %}">Orders</a>
@@ -58,29 +78,42 @@
     </div>
   </nav>
 
-  <div class="container">
 
-    <div class="profile-section">
-      <h3>Profile Information</h3>
-      <div class="profile-info">
-        <label for="name">Name:</label>
-        <p id="name">{{ name }}</p> 
-      </div>
-      <div class="profile-info">
-        <label for="email">Email:</label>
-        <p id="email">{{ email }}</p> 
-      </div>
-      <div class="profile-info">
-        <label for="phone">Phone:</label>
-        <p id="phone">{{ number }}</p> 
-      </div>
-      
-      <!-- Update Button -->
-      <form action="#" method="get">
+  <form action="{%url 'update_path'%}" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <div class="profile-section">
+        <h3>Profile Information</h3>
+
+        <div class="profile-info">
+          <label for="name">Name:</label>
+          <p id="name">{{ name }}</p>
+          <input type="text" name="name">
+        </div>
+
+        <div class="profile-info">
+          <label for="email">Email:</label>
+          <p id="email">{{ email }}</p>
+        </div>
+
+        <div class="profile-info">
+          <label for="phone">Phone:</label>
+          <p id="phone">{{ number }}</p>
+          <input type="text" name="number">
+
+        </div>
+
+        <div class="profile-info">
+          <label for="phone">Change password:</label>
+          <p >old password: <input type="text" name="oldpass"></p>
+          <p >New password: <input type="text" name="newpass"></p>
+        </div>
+
         <button type="submit" class="btn btn-warning">Update Profile</button>
-      </form>
-    </div>
-  </div>
+
+  </form>
+
+
 
   <script>
     function handleAction(action) {
@@ -90,4 +123,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

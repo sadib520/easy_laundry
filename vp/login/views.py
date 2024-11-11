@@ -25,7 +25,6 @@ def log_in_page(request):
         </div>
             '''
 
-
         if user is not None:
             login(request, user)
             return redirect('dash_path')

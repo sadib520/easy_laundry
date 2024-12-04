@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laundry Service Dashboard</title>
+  <title>Profile Information</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -68,10 +68,13 @@
             <a class="nav-link" href="{% url 'dash_path' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'order_path' %}">Orders</a>
+            <a class="nav-link" href="{% url 'order_path' %}">Order</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'profile_path' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'plan_path'%}">Pricing</a>
           </li>
         </ul>
       </div>

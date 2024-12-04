@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.views import View
-from .models import custom_user  #! imported the custom user creted in models.py
+from .models import custom_user  #! imported the custom user created in models.py
 import datetime
 
 

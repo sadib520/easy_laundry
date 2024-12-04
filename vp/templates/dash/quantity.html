@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Items</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+          background-color: #f8f9fa;
+          font-family: fira code;
+          background-color: whitesmoke;
+        }
+        .navbar {
+          background-color: #28a745; /* Green color */
+        }
+        .navbar-brand, .nav-link {
+          color: white;
+          color: black;
+        }
+        .card {
+          margin: 10px 0;
+        }
+      </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'dash_path'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'order_path'%}">Order</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'profile_path'%}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'plan_path'%}">Pricing</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br>
+    
+    <h1 style="padding-left: 30px;">Select Items</h1>
+    <form method="post" action="{%url 'quantity_path'%}" style="padding-left: 30px;">
+        {% csrf_token %}
+        <label for="wash_type1">Wash Type 1:</label>
+        <select id="wash_type1" name="wash_type1">
+            <option value="Shirt">Shirt</option>
+            <option value="Pant">Pant</option>
+            <option value="Towel">Towel</option>
+            <option value="Bedsheet">Bedsheet</option>
+        </select>
+        <label for="quantity1">Quantity 1:</label>
+        <input type="number" id="quantity1" name="quantity1" value="1" min="0" required><br><br>
+
+        <label for="wash_type2">Wash Type 2:</label>
+        <select id="wash_type2" name="wash_type2">
+            <option value="Shirt">Shirt</option>
+            <option value="Pant">Pant</option>
+            <option value="Towel">Towel</option>
+            <option value="Bedsheet">Bedsheet</option>
+        </select>
+        <label for="quantity2">Quantity 2:</label>
+        <input type="number" id="quantity2" name="quantity2" value="1" min="0" required><br><br>
+
+        <button type="submit">Calculate Price</button>
+    </form>
+    <br>
+
+    <h2 style="padding-left: 30px;">Total Price: {{ total_price }} tk</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <div style="padding-left: 30px;">
+    <button type="submit" style="background-color:lightgreen;"><a href="{%url 'payment_path'%}" style="color: inherit; text-decoration:none">Go to payment</a></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

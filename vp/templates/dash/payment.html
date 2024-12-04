@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-row {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .form-row select, 
+        .form-row input {
+            width: 100%;
+            padding: 10px;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .payment-btn {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .payment-btn:hover {
+            background-color: darkgreen;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e0ffe0;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: fira code;
+            background-color: whitesmoke;
+          }
+          .navbar {
+            background-color: #28a745; /* Green color */
+          }
+          .navbar-brand, .nav-link {
+            color: white;
+            color: black;
+          }
+          .card {
+            margin: 10px 0;
+          }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'dash_path'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'order_path'%}">Order</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'profile_path'%}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'plan_path'%}">Pricing</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">
+        <h2>Select Payment Method</h2>
+
+        <!-- Payment Method Row -->
+        <div class="form-row">
+            <label for="payment-method">Choose Payment Method:</label>
+            <select id="payment-method" onchange="togglePaymentDetails()">
+                <option value="none">--Select Payment Method--</option>
+                <option value="bkash">Bkash</option>
+                <option value="handcash">Hand Cash</option>
+            </select>
+        </div>
+
+        <!-- Bkash Payment Details -->
+        <div class="form-row" id="bkash-details" style="display: none;">
+            <label for="bkash-transaction">Enter Bkash Transaction Number:</label>
+            <input type="text" id="bkash-transaction" placeholder="Transaction ID">
+        </div>
+
+        <!-- Hand Cash Payment -->
+        <div class="form-row" id="handcash-details" style="display: none;">
+            <p>Pay Hand Cash to the delivery man.</p>
+        </div>
+
+        <!-- Submit Payment Button -->
+        <button class="payment-btn" onclick="submitPayment()">Submit Payment</button>
+
+        <!-- Payment Result -->
+        <div class="result" id="payment-result" style="display: none;">
+            <h3>Payment Information</h3>
+            <p><strong>Payment Method:</strong> <span id="result-method"></span></p>
+            <p><strong>Transaction Number (Bkash):</strong> <span id="result-transaction"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle payment details based on selected payment method
+        function togglePaymentDetails() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const bkashDetails = document.getElementById('bkash-details');
+            const handcashDetails = document.getElementById('handcash-details');
+            const paymentResult = document.getElementById('payment-result');
+            const resultMethod = document.getElementById('result-method');
+            const resultTransaction = document.getElementById('result-transaction');
+
+            // Hide both details first
+            bkashDetails.style.display = 'none';
+            handcashDetails.style.display = 'none';
+            paymentResult.style.display = 'none';
+
+            // Show relevant details based on payment method selected
+            if (paymentMethod === 'bkash') {
+                bkashDetails.style.display = 'block';
+                handcashDetails.style.display = 'none';
+            } else if (paymentMethod === 'handcash') {
+                handcashDetails.style.display = 'block';
+                bkashDetails.style.display = 'none';
+            }
+        }
+
+        // Function to submit payment
+        function submitPayment() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const bkashTransaction = document.getElementById('bkash-transaction').value;
+            const paymentResult = document.getElementById('payment-result');
+            const resultMethod = document.getElementById('result-method');
+            const resultTransaction = document.getElementById('result-transaction');
+
+            if (paymentMethod === 'none') {
+                alert('Please select a payment method.');
+                return;
+            }
+
+            // Update result details
+            resultMethod.textContent = paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1); // Capitalize the method
+            if (paymentMethod === 'bkash') {
+                if (bkashTransaction === '') {
+                    alert('Please enter the Bkash transaction number.');
+                    return;
+                }
+                resultTransaction.textContent = bkashTransaction;
+            } else {
+                resultTransaction.textContent = 'N/A'; // No transaction number needed for Hand Cash
+            }
+
+            // Show payment result
+            paymentResult.style.display = 'block';
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

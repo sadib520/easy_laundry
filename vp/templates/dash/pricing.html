@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .subheader {
+            width: 100%;
+            background-color: white; /* White background for the new section */
+            color: green; /* Green text color */
+            text-align: center;
+            padding: 20px 0; /* Increased padding */
+            font-size: 30px; /* Larger text */
+            font-weight: bold; /* Bold text */
+            margin-top: 10px; /* Space between the header and subheader */
+            text-decoration: underline; /* Underline the entire sentence */
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .container .box {
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+
+        .container .box.center {
+            grid-column: span 2; /* Makes the box span across both columns */
+            justify-self: center;
+            width: 50%;
+        }
+
+        .box p {
+            font-size: 30px; /* Increased text size */
+            font-weight: normal;
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: gray; /* Standard gray button color */
+            color: white;
+            border: 1px solid black; /* Added black border */
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .box button:hover {
+            background-color: #6c757d; /* Darker gray on hover */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .box.center {
+                width: 100%;
+            }
+
+            .box {
+                height: 130px;
+            }
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: fira code;
+            background-color: whitesmoke;
+          }
+          .navbar {
+            background-color: #28a745; /* Green color */
+          }
+          .navbar-brand, .nav-link {
+            color: white;
+            color: black;
+          }
+          .card {
+            margin: 10px 0;
+          }
+          header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'dash_path'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'order_path'%}">Orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'profile_path'%}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'plan_path'%}">Pricing</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="subheader">
+        <p>Choose your Subscription type:</p> 
+    </div>
+    <div class="container">
+        <div class="box">
+            <p>Basic</p>
+            <button><a href="{%url 'payment_path'%}" style="color: inherit; text-decoration:none">BUY</a></button>
+        </div>
+        <div class="box">
+            <p>Family</p>
+            <button><a href="{%url 'payment_path'%}" style="color: inherit; text-decoration:none">BUY</a></button>
+        </div>
+        <div class="box center">
+            <p>Enterprise</p>
+            <button><a href="{%url 'payment_path'%}" style="color: inherit; text-decoration:none">BUY</a></button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

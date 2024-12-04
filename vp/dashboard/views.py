@@ -22,7 +22,57 @@ def dashboard(request):
 
 
 def order(request):
+
     return render(request, 'dash/order.html')
+
+def buyplan(request):
+    return render(request, 'dash/pricing.html')
+
+
+def quantity(request):
+    if request.method == "POST":
+        try:
+            # Retrieve POST data
+            wash_type1 = request.POST.get("wash_type1", "")
+            quantity1 = int(request.POST.get("quantity1", 0))
+            wash_type2 = request.POST.get("wash_type2", "")
+            quantity2 = int(request.POST.get("quantity2", 0))
+
+            # Define prices for each wash type
+            prices = {
+                "Shirt": 10,
+                "Pant": 15,
+                "Towel": 5,
+                "Bedsheet": 20,
+            }
+
+            # Calculate the total price
+            total_price = (
+                prices.get(wash_type1, 0) * quantity1
+                + prices.get(wash_type2, 0) * quantity2
+            )
+
+            # Render the result back in the template
+            return render(
+                request,
+                "dash/quantity.html",
+                {"total_price": total_price},
+            )
+        except Exception as e:
+            # Handle errors and show the message in the template
+            return render(
+                request,
+                "dash/quantity.html",
+                {"total_price": 0, "error": "Error calculating price."},
+            )
+    else:
+        # Render an empty form with total price set to 0
+        return render(request, "dash/quantity.html", {"total_price": 0})
+
+
+
+def payment(request):
+    return render(request, 'dash/payment.html')
 
 
 def profile(request):

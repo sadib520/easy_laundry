@@ -1,31 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About us
-  </title>
-  <style>
-    body{
-      background-color: whitesmoke;
-    }
-    html {
-      --s: 95px; /* control the size*/
-      --c1: #eceddc;
-      --c2: #158e6c;
-      
-      --_g: var(--c1) 90deg,#0000 90.5deg;
-      background:
-       conic-gradient(from -45deg,var(--_g)),
-       conic-gradient(from 135deg,var(--_g)) calc(var(--s)/2) 0,
-       var(--c2);
-      background-size: var(--s) var(--s)
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .header {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .content {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section-text {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-  
-  
-  
+    <div class="header">About Us</div>
+
+    <div class="content">
+        <h1 class="section-title">A Few Words About Us</h1>
+        <p class="section-text">
+            We are professionals in the laundry and dry cleaning business, which means we always stay up-to-date on the latest technologies, cleaning methods, and solutions for dealing with stains or delicate fabrics. Plus, we maintain the highest standards of business integrity by following local and national regulations and environmental safety rules!
+        </p>
+
+        <h1 class="section-title"><u>Why Choose Us</u></h1><br>
+        <div class="columns">
+            <div class="card">
+                <h2>Personalized Experience</h2>
+                <p>We take utmost care of your clothes, segregating based on cloth type and giving you instant clothes to make a statement.</p>
+            </div>
+            <div class="card">
+                <h2>Affordable Pricing</h2>
+                <p>Prices that suit your pocket. An option of choosing between two types of pricing is available.</p>
+            </div>
+            <div class="card">
+                <h2>Convenience</h2>
+                <p>With just a tap of a button, your laundry gets done, giving you leisure time to spend with family and friends.</p>
+            </div>
+            <div class="card">
+                <h2>Quality</h2>
+                <p>We use the best in class products to assure that your favorite clothes are always ready to wear.</p>
+            </div>
+            <div class="card">
+                <h2>Instant Order Update</h2>
+                <p>Regular updates of your order help you keep track of your laundry and plan accordingly.</p>
+            </div>
+            <div class="card">
+                <h2>Express Delivery</h2>
+                <p>Forgot to wash your clothes for an interview or business meeting? Never mind. With our super express delivery, we get your laundry done in less than 8 hours!</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

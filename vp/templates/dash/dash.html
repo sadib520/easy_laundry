@@ -21,6 +21,42 @@
     .card {
       margin: 10px 0;
     }
+    h1 {
+      text-align: center;
+      color: black;
+       /* Dark green */
+  }
+
+  /* Style for the table */
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  }
+
+  /* Styling for table headers */
+  th {
+      background-color: #4CAF50; /* Green header */
+      color: white;
+      padding: 10px;
+  }
+
+  /* Styling for table cells */
+  td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+  }
+
+  /* Alternating row colors */
+  tr:nth-child(even) {
+      background-color: #e8f5e9; /* Light green for even rows */
+  }
+
+  /* Row hover effect */
+  tr:hover {
+      background-color: #c8e6c9; /* Slightly darker green on hover */
+  }
   </style>
 </head>
 <body>
@@ -38,10 +74,13 @@
             <a class="nav-link" href="{%url 'dash_path'%}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{%url 'order_path'%}">Orders</a>
+            <a class="nav-link" href="{%url 'order_path'%}">Order</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{%url 'profile_path'%}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'plan_path'%}">Pricing</a>
           </li>
         </ul>
       </div>
@@ -52,36 +91,80 @@
 
   <div class="container mt-4">
     <h1 class="text-center">Welcome to Your Dashboard<br>{{name}}</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">New Orders</h5>
-            <p class="card-text">Manage all new laundry orders.</p>
-            <button class="btn btn-success" onclick="handleAction('newOrders')">View Orders</button>
-          </div>
-        </div>
+  </div>
+    <!-- <div class="row">
+      <div class="col-md-4"> -->
+        <!-- <div class="card"> -->
+          <!-- <div class="card-body text-center">
+            <!-- <h5 class="card-title">New Orders</h5> -->
+            <!-- <p class="card-text">Manage all new laundry orders.</p> -->
+            <!-- <button class="btn btn-success" onclick="handleAction('newOrders')">View Orders</button> -->
+          <!-- </div> -->
+        <!-- </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">In Progress</h5>
-            <p class="card-text">Track laundry currently in progress.</p>
-            <button class="btn btn-success" onclick="handleAction('inProgress')">Track Progress</button>
-          </div>
-        </div>
+        <div class="card"> -->
+          <!-- <div class="card-body text-center"> -->
+            <!-- <h5 class="card-title">In Progress</h5> -->
+            <!-- <p class="card-text">Track laundry currently in progress.</p> -->
+            <!-- <button class="btn btn-success" onclick="handleAction('inProgress')">Track Progress</button> -->
+          <!-- </div> -->
+        <!-- </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Completed</h5>
-            <p class="card-text">View completed orders ready for pickup.</p>
-            <button class="btn btn-success" onclick="handleAction('completed')">View Completed</button>
-          </div>
-        </div>
+        <div class="card"> -->
+          <!-- <div class="card-body text-center"> -->
+            <!-- <h5 class="card-title">Completed</h5> -->
+            <!-- <p class="card-text">View completed orders ready for pickup.</p> -->
+            <!-- <button class="btn btn-success" onclick="handleAction('completed')">View Completed</button> -->
+          <!-- </div> -->
+        <!-- </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <h1 style="text-decoration: underline;">Time Schedule</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Time Slot</th>
+              <th>Task</th>
+              <th>Assigned Person</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>8:00 AM - 9:00 AM</td>
+              <td>Sorting Laundry</td>
+              <td>Tahia</td>
+          </tr>
+          <tr>
+              <td>9:00 AM - 10:00 AM</td>
+              <td>Washing - Regular Clothes</td>
+              <td>Hasan</td>
+          </tr>
+          <tr>
+              <td>10:00 AM - 11:00 AM</td>
+              <td>Drying - Regular Clothes</td>
+              <td>Sadib</td>
+          </tr>
+          <tr>
+              <td>11:30 AM - 12:00 PM</td>
+              <td>Ironing</td>
+              <td>Rion</td>
+          </tr>
+          <tr>
+              <td>2:00 PM - 3:00 PM</td>
+              <td>Packaging</td>
+              <td>Joy</td>
+          </tr>
+          <tr>
+              <td>5:00 PM - 6:00 PM</td>
+              <td>Delivery</td>
+              <td>Delivary Man</td>
+          </tr>
+      </tbody>
+  </table>
 
   <script>
     function handleAction(action) {
